@@ -18,7 +18,7 @@ export class WeatherService {
         const queryParams: HttpParams = new HttpParams()
             .set("lat", lat)
             .set("lon", lon)
-            .set("appid", "4d7261bcff643d7e993edb97829cc148");
+            .set("appid", "");
         // Works
         const result$ = this.http.get(url, {params: queryParams}).pipe(take(1));
         // lastValueFrom(result$).then((data) => {
