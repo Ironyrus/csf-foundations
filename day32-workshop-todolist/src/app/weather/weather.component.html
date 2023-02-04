@@ -1,0 +1,53 @@
+<form [formGroup]="weatherForm" style="margin-left: 10px" (ngSubmit)="processForm()">
+
+    <mat-form-field>
+        <mat-label> lat: </mat-label>
+        <input matInput type="text" formControlName="lat">
+        <mat-icon matSuffix> face </mat-icon>
+        <mat-hint align="end">Latitude</mat-hint>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <mat-label> lon: </mat-label>
+        <input matInput type="text" formControlName="lon">
+        <mat-icon matSuffix> face </mat-icon>
+        <mat-hint align="end">Longitude</mat-hint>
+    </mat-form-field><br>
+
+    <div class="button-bar">
+        <button style="margin: 15px;" mat-raised-button color="accent" type="submit">
+            <mat-icon>save</mat-icon> Get Weather
+        </button>
+
+        <button style="margin: 15px;" mat-raised-button color="warn" type="button" (click)="clearForm()">
+            <mat-icon>delete</mat-icon> Clear
+        </button>
+    </div>
+
+
+</form>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Weather Here:</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <img *ngIf="model.icon" src="{{ imgUrl }}">
+        <p>
+            Country: <span *ngIf="model.country">{{ model.country }}</span>
+        </p>
+        <p>
+            Temperature: <span *ngIf="model.temp">{{ model.temp - 273.15 | number }}°C</span>
+        </p>
+        <p>
+            Feels like: <span *ngIf="model.feels_like">{{ model.feels_like - 273.15 | number }}°C</span>
+        </p>
+        <p>
+            Sunrise: <span >{{ sunrise }}</span>
+        </p>
+        <p>
+            Sunset: <span *ngIf="model.sunset">{{ sunset }}</span>
+        </p>
+    </mat-card-content>
+</mat-card>

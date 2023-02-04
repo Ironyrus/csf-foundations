@@ -1,0 +1,26 @@
+.taskArr {
+    border: 3px solid red;
+    color: purple;
+    margin: 10px;
+    padding: 10px;
+}
+
+.float-container {
+    border: 3px solid white;
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .float-child {
+    width: 40%;
+    float: left;
+    padding: 10px;
+    border: 2px solid orange;
+  }  
+  
+  .float-child2 {
+    width: 40%;
+    float: right;
+    padding: 10px;
+    border: 2px solid orange;
+  }  

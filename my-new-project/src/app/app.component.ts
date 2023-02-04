@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-new-project';
+
+  name1 = '';
+
+  nameChange(name: string){
+    this.name1 = name;
+  }
+}

@@ -1,0 +1,69 @@
+<form [formGroup]="todoForm" style="margin-left:10px" (ngSubmit)="processForm()">
+    
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Name:</mat-label> 
+        <input matInput type="text" formControlName="name">
+        <mat-icon matSuffix>face</mat-icon>        
+        <mat-hint align="end">Eg. John Doe</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Email:</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-icon matSuffix>email</mat-icon>         
+        <mat-hint align="end">example@example.com</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <!-- <button style="margin: 15px;" type="submit" 
+    [disabled]="todoArr.invalid"
+    >Submit</button> -->
+    <div class="button-bar">
+        <button style="margin: 15px;" mat-raised-button color="accent" type="submit">
+            <mat-icon>save</mat-icon> Submit
+        </button>
+        <button style="margin: auto;" mat-raised-button color="primary" type="button" (click)="addTodo()">
+            <mat-icon>assignment</mat-icon>Add A Task
+        </button>
+    </div>
+    <br>
+
+    <tbody formArrayName="todos">
+        <tr *ngFor="let todo of todoArr.controls; let index = index">
+            <!-- https://dontpaniclabs.com/blog/post/2022/01/05/how-to-use-angular-formarrays-within-formgroups-in-reactive-forms/ -->
+            <div style="margin: 10px" [formGroupName]="index">
+                <td>Task: <input type="text" formControlName="description"></td>
+                <td>Priority: 
+                <select formControlName="priority">
+                    <option value="High" >High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low" [selected]="true">Low</option>
+                </select></td>      
+                <td>Due: <input type="date" formControlName="due"></td>
+                <td><button type="button" (click)="deleteTask(index)">X</button></td>
+            </div>
+        </tr>
+        
+    </tbody>
+  </form>
+
+
+<h1 style="color:orange; margin-left: 30px;">Tasks</h1>
+
+<div style="margin-left: 30px">
+<h1>{{name}}</h1>
+<h2>{{email}}, {{dob}}</h2>
+<div *ngFor="let eaItem of formArr">
+    <div class="taskArr">
+        <h2>{{eaItem.description}}</h2>
+        <p style="font-style:italic" >{{eaItem.priority}}</p>
+        <p >{{eaItem.due}}</p>
+    </div>
+</div>
+</div>
