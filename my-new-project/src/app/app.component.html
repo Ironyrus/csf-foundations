@@ -1,7 +1,32 @@
-<h1>Hello {{ name1 }}</h1>
+<form [formGroup]="octaForm" style="margin-left:10px" (ngSubmit)="processForm()">
+    
+    Master Equity: 
+    <input type="text" formControlName="masterEq">
+    <br><br>
 
-<p>One new thing</p>
+    Estimated Master Equity: {{ masterEstEq }}
+    <br><br>
 
-<!-- This is a child -->
-<!-- (childAttr) = "parentMethod)" -->
-<app-testcomponent (nameChange)="nameChange($event)"></app-testcomponent>
+    My Capital:
+    <input type="text" formControlName="capital">
+    <br><br>
+
+    Proportion to follow: {{ copyProp }}X
+    <br><br>
+
+    Shield: {{ shield }} out of {{ capital }}
+    <br><br>
+
+    <p>For every $2 trade the master makes, you make:</p>
+    ${{ estTwoDollars }}
+    <br><br>
+
+    <p>Projected weekly return at {{weeklyReturn * 100}}%:</p>
+    ${{ weeklyReturn * masterEstEq }}
+
+    <p>Projected monthly return at {{weeklyReturn * 100}}%:</p>
+    ${{ weeklyReturn * masterEstEq * 4 }}
+
+    <p>Projected yearly return at {{weeklyReturn * 100}}%:</p>
+    ${{ weeklyReturn * masterEstEq * 4 * 12}}
+</form>

@@ -1,0 +1,6 @@
+<h2>Upload File:</h2>
+<form [formGroup]="uploadForm" (ngSubmit)="upload()">
+    File:
+    <input type="file" formControlName="file" #file>
+    <button type="submit" style="margin:10px">Upload File</button>
+</form>

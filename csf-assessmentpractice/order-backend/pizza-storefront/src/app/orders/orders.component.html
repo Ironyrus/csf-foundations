@@ -1,0 +1,10 @@
+<h2>Orders for {{email}}</h2>
+
+<div *ngFor="let info of orderListInOrdersComponent" style="border-color: green; border-style: solid; padding: 10px">
+    <p>Order Id: {{info.order_id}}</p>
+    <!-- Display amount to two decimal places -->
+    <p>Order Amount: {{info.amount.toFixed(2)}}</p>
+    <br>
+</div>
+
+<button type="button" routerLink="/home">Back to Ordering!</button>

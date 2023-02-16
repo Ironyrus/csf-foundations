@@ -1,0 +1,20 @@
+<form [formGroup]="cartForm" style="margin-left:10px" (ngSubmit)="onSubmit()">
+    Username: 
+    <input type="text" formControlName="username" >
+    
+    <button type="button" (click)="addItem()">Add an item!</button> <!-- type button for click events -->
+
+    <tbody formArrayName="contents">
+        <tr *ngFor="let itemField of itemArr.controls; let index = index">
+            <div style="margin: 10px" [formGroupName]="index">  
+                <!-- With form array need to have form[formGroupName]="index" -->
+                
+                <td>Item name: <input type="text" formControlName="note"></td>
+                <td>Price: <input type="text" formControlName="cost"></td>
+            </div>
+        </tr>
+
+    </tbody>
+
+    <button type="submit">Submit!</button>
+</form>

@@ -19,7 +19,7 @@ export class GameComponent  implements OnChanges {
   model: gameModel[] = [new gameModel("","")];
   tempArr: gameModel[] = [new gameModel("","")];
   pointer: number = 0;
-  limit: number = 5;
+  limit: number = 3;
 
   constructor(private fb: FormBuilder,
               private gameService: GameService) {

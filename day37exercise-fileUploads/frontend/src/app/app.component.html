@@ -1,0 +1,21 @@
+<h1> Web Camera Angular</h1>
+
+<webcam 
+[trigger]="triggerObs"
+(imageCapture)="takePhoto($event)"
+*ngIf="showWebcam"></webcam>
+
+<br>
+<button (click)="toggleWebcam()" >Toggle Webcam</button>
+<button type="button" class="actionBtn" (click)="snap()">Snap!</button>
+
+<br><br>
+
+<img src="{{imgUrl}}" style="height: 300px" alt="Image Here">
+
+<br><br>
+<button *ngIf="imgUrl !== 'https://cdn.boldomatic.com/content/post/lLxDag/hold-on-just-a-minute-I-m-not-done-yet?size=800'" type="button" (click)="upload()">Upload</button>
+
+<app-form></app-form>
+
+<app-upload></app-upload>
